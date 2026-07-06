@@ -72,6 +72,7 @@ def get_current_weather(latitude: float, longitude: float):
             "weatherCondition": data.get("weatherCondition", {}).get("type"),
             "cloudCover": data.get("cloudCover")
         }
+        #Add cloud
 
     except Exception as e:
         logger.error(f"Weather API error: {e}")
