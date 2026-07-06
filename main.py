@@ -69,7 +69,8 @@ def get_current_weather(latitude: float, longitude: float):
             "wind_Speed": data.get("wind", {}).get("speed", {}).get("value"),
             "precipitation_type": data.get("precipitation", {}).get("probability", {}).get("type"),
             "precipitation_percent": data.get("precipitation", {}).get("probability", {}).get("percent"),
-            "weatherCondition": data.get("weatherCondition", {}).get("type")
+            "weatherCondition": data.get("weatherCondition", {}).get("type"),
+            "cloudCover": data.get("cloudCover")
         }
 
     except Exception as e:
@@ -117,7 +118,8 @@ async def telemetry_loop():
                 "uvIndex": weather["uvIndex"],
                 "windSpeed": weather["wind_Speed"],
                 "precipitation": weather["precipitation_type"],
-                "weatherCon": weather["weatherCondition"]
+                "weatherCon": weather["weatherCondition"],
+                "cloudCover": weather["cloudCover"],
             }
 
             try:
